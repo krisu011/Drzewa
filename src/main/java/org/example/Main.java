@@ -45,6 +45,8 @@ public class Main {
             }
         }
 
+        ///Nearest_Neighbor.NN(mapa, n, 2, 3);
+
         for(int i=0; i<ile; i++)
         {
             dodaj();

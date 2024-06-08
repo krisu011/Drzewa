@@ -6,10 +6,9 @@ public class Nearest_Neighbor {
         return Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
     }
 
-    public static void NN(int[][] tab, int n, int x, int y) {
+    public static int[] NN(int[][] tab, int n, int x, int y) {
         int[] nearest = new int[2];
         double min = Double.MAX_VALUE;
-
         for(int i=0; i<n; i++)
         {
             for(int j=0; j<n; j++)
@@ -22,12 +21,14 @@ public class Nearest_Neighbor {
                         if(dist<min)
                         {
                             min=dist;
-
+                            nearest[0] = i;
+                            nearest[1] = j;
                         }
                     }
 
                 }
             }
         }
+        return nearest;
     }
 }
