@@ -6,26 +6,27 @@ public class Nearest_Neighbor {
         return Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
     }
 
-    public static int[] NN(int[][] tab, int n, int x, int y) {
+    /// mapa od [3][2]   to polozenie na mapie o koordynatach 2 3
+    /// x = 2     y = 3     n = 20
+    public static int[] NN(int[][] map, int n, int x, int y) {
         int[] nearest = new int[2];
         double min = Double.MAX_VALUE;
         for(int i=0; i<n; i++)
         {
             for(int j=0; j<n; j++)
             {
-                if(i != x && j != y) // pomijamy ten sam punkt
+                if(map[i][j] != 0) /// sprawdzamy odleglosci tylko jak jest juz jakis objekt w tym miejscu na mapie
                 {
-                    if(tab[i][j] != 0) /// sprawdzamy odleglosci tylko jak jest juz jakis objekt w tym miejscy na mapie
+                    double dist = dystans(x,y,j,i); // wyliczamy dystans pomiedzy punktami na mapie
+                    if(dist != 0)
                     {
-                        double dist = dystans(x,y,i,j); // wyliczamy dystans pomiedzy punktem na mapie
                         if(dist<min)
                         {
                             min=dist;
-                            nearest[0] = i;
-                            nearest[1] = j;
+                            nearest[0] = j;
+                            nearest[1] = i;
                         }
                     }
-
                 }
             }
         }

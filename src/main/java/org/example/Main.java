@@ -1,4 +1,5 @@
 package org.example;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.lang.Math;
 
 import java.lang.reflect.Array;
@@ -6,7 +7,7 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Main {
-    static int [][] tab = new int[400][5];
+    static int [][] zbior_drzew = new int[400][5]; /// [ktore, X, Y, czy_zarazone?,
     static int licznik=0;
 
     public static void dodaj()
@@ -19,11 +20,11 @@ public class Main {
         int which = scan.nextInt();
         System.out.println("Czy drzewo jest zainfekowane? (1=tak, 0=nie)");
         int infected = scan.nextInt();
-        tab[licznik][0] = which;
-        tab[licznik][1] = X;
-        tab[licznik][2] = Y;
-        tab[licznik][3] = infected;
-        tab[licznik][4] = 0;
+        zbior_drzew[licznik][0] = which;
+        zbior_drzew[licznik][1] = X;
+        zbior_drzew[licznik][2] = Y;
+        zbior_drzew[licznik][3] = infected;
+        zbior_drzew[licznik][4] = 0;
         licznik = licznik + 1;
     }
 
@@ -32,6 +33,7 @@ public class Main {
         double zasieg=1.0;
         int n = 20; /// Wymiar mapy to n x n, gdzie n >=10
         int[][] mapa = new int[n][n];
+
         /// ktore X Y infected? lifetime
         System.out.println("Mapa ma wymiary: " + n + "x" + n);
         System.out.println("Ile drzew chcesz dodac?");
@@ -52,14 +54,15 @@ public class Main {
 
         ///Nearest_Neighbor.NN(mapa, n, 2, 3);
 
-        for(int i=0; i<10; i++){
-            if(tab[i][3]==1)
+        for(int i = 0; i<licznik; i++){
+            if(zbior_drzew[i][3]==1)
             {
-                mapa[tab[i][1]][tab[i][2]] = tab[i][0]*(-1);
+                mapa[zbior_drzew[i][2]][zbior_drzew[i][1]] = zbior_drzew[i][0]*(-1);
+                zbior_drzew[i][0]=zbior_drzew[i][0]*(-1);
             }
             else
             {
-                mapa[tab[i][1]][tab[i][2]] = tab[i][0];
+                mapa[zbior_drzew[i][2]][zbior_drzew[i][1]] = zbior_drzew[i][0];
             }
         }
 
@@ -69,5 +72,17 @@ public class Main {
             }
             System.out.println();
         }
+        int[] tab1 = Nearest_Neighbor.NN(mapa, n, zbior_drzew[0][1], zbior_drzew[0][2]);
+
+        System.out.println(tab1[0] + " " + tab1[1]);
+        ///System.out.println(mapa[2][3] + " " + mapa[3][2]); /// mapa od 3 2   to polozenie na mapie o koordynatach 2 3
+        for(int i=0; i<licznik; i++)
+        {
+            if(zbior_drzew[i][1]==tab1[0] && zbior_drzew[i][2]==tab1[1])
+            {
+                System.out.println(zbior_drzew[i][0]);
+            }
+        }
+        System.out.println(mapa[5][2]);
     }
 }
