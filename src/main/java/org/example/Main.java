@@ -2,7 +2,7 @@ package org.example;
 import java.lang.Math;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
+ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -30,15 +30,20 @@ public class Main {
 
     public static void main(String[] args) {
         double zasieg=1.0;
-        int n = 20; /// Wymiar mapy to n x n
+        int n = 20; /// Wymiar mapy to n x n, gdzie n >=10
         int[][] mapa = new int[n][n];
         /// ktore X Y infected? lifetime
         System.out.println("Mapa ma wymiary: " + n + "x" + n);
         System.out.println("Ile drzew chcesz dodac?");
             Scanner scan = new Scanner(System.in);
             int ile = scan.nextInt();
-        /// bardzo poczatkowa reprezentacja mapy
 
+        for(int i=0; i<ile; i++)
+        {
+            dodaj();
+        }
+
+        /// bardzo poczatkowa reprezentacja mapy
         for(int i=0; i<20; i++){
             for(int j=0; j<20; j++){
                 mapa[i][j] = 0;
@@ -46,11 +51,6 @@ public class Main {
         }
 
         ///Nearest_Neighbor.NN(mapa, n, 2, 3);
-
-        for(int i=0; i<ile; i++)
-        {
-            dodaj();
-        }
 
         for(int i=0; i<10; i++){
             if(tab[i][3]==1)
