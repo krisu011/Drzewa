@@ -24,7 +24,7 @@ public class Main {
         zbior_drzew[licznik][1] = X;
         zbior_drzew[licznik][2] = Y;
         zbior_drzew[licznik][3] = infected;
-        zbior_drzew[licznik][4] = 0;
+        zbior_drzew[licznik][4] = 0; /// czas zycia
         licznik = licznik + 1;
     }
 

@@ -1,5 +1,5 @@
 package org.example;
 
 public interface Spread {
-    int[] Spread(int X, int Y, int[][] map);
+    int[] Spread(int X, int Y, int[][] map, int n);
 }

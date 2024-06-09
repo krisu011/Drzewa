@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Buk_Spread implements Spread{
     @Override
-    public int[] Spread(int x, int y, int[][] map)
+    public int[] Spread(int x, int y, int[][] map, int n)
     {
         int[] tab = new int[2];
         Random rand = new Random();
