@@ -17,5 +17,11 @@ abstract public class Drzewo {
     public void spread(Map mapa) {
         spread.Spread(y, x, mapa);
     }
+    public void updatelifetime(){
+        this.lifetime++;
+    }
+    public int getlifetime(){
+        return this.lifetime;
+    }
 
 }

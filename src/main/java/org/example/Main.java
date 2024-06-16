@@ -19,6 +19,7 @@ public class Main {
             System.out.println("Iteracja " + (i + 1) + ":");
             spreadTrees(mapa);
             printMap(mapa);
+            updateObjectsLifetime(mapa);
         }
     }
 
@@ -41,13 +42,13 @@ public class Main {
 
     public static void spreadTrees(Map mapa) {
         Drzewo[][] map = mapa.zwrocmape();
-        int [][] mapka = new int[map.length][map[0].length];
-        for(int y = 0; y < map.length; y++) {
-            for(int x = 0; x < map[y].length; x++) {
-                if(map[y][x] instanceof Brzoza) {
+        int[][] mapka = new int[map.length][map[0].length];
+        for (int y = 0; y < map.length; y++) {
+            for (int x = 0; x < map[y].length; x++) {
+                if (map[y][x] instanceof Brzoza) {
                     mapka[y][x] = 1;
                 }
-                if(map[y][x] instanceof Dab) {
+                if (map[y][x] instanceof Dab) {
                     mapka[y][x] = 2;
                 }
             }
@@ -55,7 +56,24 @@ public class Main {
         for (int y = 0; y < map.length; y++) {
             for (int x = 0; x < map[y].length; x++) {
                 if (mapka[y][x] != 0) {
-                    map[y][x].spread(mapa);
+                    if (mapka[y][x] == 1) {
+                        map[y][x].spread(mapa);
+                    }
+                    if(mapka[y][x] == 2){
+                        if(map[y][x].getlifetime() % 4 == 0){
+                            map[y][x].spread(mapa);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public static void updateObjectsLifetime(Map mapa) {
+        Drzewo[][] map = mapa.zwrocmape();
+        for (int y = 0; y < map.length; y++) {
+            for (int x = 0; x < map[y].length; x++) {
+                if(map[y][x] != null){
+                    map[y][x].updatelifetime();
                 }
             }
         }
