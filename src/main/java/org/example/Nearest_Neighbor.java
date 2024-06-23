@@ -1,4 +1,4 @@
-package org.example;
+/*package org.example;
 import java.lang.Math;
 
 public class Nearest_Neighbor {
@@ -32,3 +32,4 @@ public class Nearest_Neighbor {
         return nearest;
     }
 }
+*/

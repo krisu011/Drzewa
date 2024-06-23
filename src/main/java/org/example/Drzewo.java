@@ -1,27 +1,33 @@
 package org.example;
 
 abstract public class Drzewo {
-    Spread spread;
-    int x, y, lifetime, size;
+
+    int x, y, lifetime;
     boolean infected;
 
-    public Drzewo(int y, int x, int lifetime, int size, boolean infected, Spread spread) {
-        this.spread = spread;
+    public Drzewo(int y, int x, int lifetime, boolean infected) {
+
         this.x = x;
         this.y = y;
         this.lifetime = lifetime;
-        this.size = size;
         this.infected = infected;
     }
 
-    public void spread(Map mapa) {
-        spread.Spread(y, x, mapa);
-    }
-    public void updatelifetime(){
+    public abstract void spread(int n);
+
+    public void updatelifetime() {
         this.lifetime++;
     }
-    public int getlifetime(){
+
+    public int getlifetime() {
         return this.lifetime;
     }
 
+    public int getx() {
+        return x;
+    }
+
+    public int gety() {
+        return y;
+    }
 }
