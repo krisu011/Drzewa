@@ -5,8 +5,8 @@ public class Dab extends Drzewo {
 
     //nazwa = "D";
 
-    Dab(int x, int y, int lifetime, boolean infected) {
-        super(x, y, lifetime, infected);
+    Dab(int x, int y, int lifetime, boolean infected, String name) {
+        super(x, y, lifetime, infected, name);
     }
 
     public void spread(int n) {
@@ -26,7 +26,7 @@ public class Dab extends Drzewo {
                     //System.out.println("pierwszy if"+ map[newY][newX]);
                     if (Map.zwrocmape().getMapa()[newY][newX] == null) {
                         //System.out.println("drugi if");
-                        Dab dab = new Dab(newY, newX, 1, false);
+                        Dab dab = new Dab(newY, newX, 1, false, "D");
                         Map.zwrocmape().dodajDrzewo(newY, newX, dab);
                     }
                 }

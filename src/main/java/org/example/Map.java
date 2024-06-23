@@ -1,15 +1,17 @@
 package org.example;
 
+import static org.example.Main.rozmiar;
+
 public class Map {
     static Map instance = null;
     private Drzewo[][] mapa;
-    private Map(int n){
-        this.mapa = new Drzewo[n][n];
+    private Map(){
+        this.mapa = new Drzewo[rozmiar][rozmiar];
     }
 
     public static Map zwrocmape(int n) {
         if(instance == null){
-            instance = new Map(n);
+            instance = new Map();
         }
         return instance;
     }
@@ -28,24 +30,32 @@ public class Map {
         mapa[y][x] = drzewo;
     }
 
-    public void spreadTrees(int n) {
-        for (int y = 0; y < n; y++) {
-            for (int x = 0; x < n; x++) {
+    public void spreadTrees(int rozmiar) {
+        for (int y = 0; y < rozmiar; y++) {
+            for (int x = 0; x < rozmiar; x++) {
                 if (mapa[y][x] != null) {
-                    mapa[y][x].spread(n);
+                    mapa[y][x].spread(rozmiar);
                 }
             }
         }
     }
+
+
     public void printMap(int n) {
         for (int y = 0; y < n; y++) {
             for (int x = 0; x < n; x++) {
                 if (mapa[y][x] == null) {
-                    System.out.print(0);
-                } else if (mapa[y][x] instanceof Brzoza) {
-                    System.out.print(1);
-                } else if (mapa[y][x] instanceof Dab) {
-                    System.out.print(2);
+                    System.out.print(".");
+                }
+                else {
+                    if(mapa[y][x].infected){
+                        System.out.print("\u001B[31m");
+                        System.out.print(mapa[y][x].getName());
+                        System.out.print("\u001B[37m");
+                    }
+                    System.out.print("\033[0;32m");
+                    System.out.print(mapa[y][x].getName());
+                    System.out.print("\u001B[37m");
                 }
             }
             System.out.println();

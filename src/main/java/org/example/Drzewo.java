@@ -4,13 +4,23 @@ abstract public class Drzewo {
 
     int x, y, lifetime;
     boolean infected;
+    String name;
 
-    public Drzewo(int y, int x, int lifetime, boolean infected) {
+    public Drzewo(int y, int x, int lifetime, boolean infected, String name) {
 
         this.x = x;
         this.y = y;
         this.lifetime = lifetime;
         this.infected = infected;
+        this.name = name;
+    }
+
+    public void setInfected() {
+           this.infected = true;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public abstract void spread(int n);
