@@ -28,11 +28,8 @@ public class Dab extends Drzewo {
             for (int i = 0; i < dx.length; i++) {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
-                //System.out.println(newX + " " + newY);
                 if (newX >= 0 && newX < n && newY >= 0 && newY < n) {
-                    //System.out.println("pierwszy if"+ map[newY][newX]);
                     if (Map.zwrocmape().getMapa()[newX][newY] == null) {
-                        //System.out.println("drugi if");
                         Dab dab = new Dab(newX, newY, 1, false, "D");
                         Map.zwrocmape().dodajDrzewo(newX, newY, dab);
                     }

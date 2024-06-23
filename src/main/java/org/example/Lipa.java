@@ -18,6 +18,7 @@ public class Lipa extends Drzewo{
         int[] dyy = {-7, 2};
 
         int co_ile =7;
+
         if(infected)
         {
             co_ile=co_ile*2;
