@@ -17,17 +17,24 @@ public class Dab extends Drzewo {
         int[] dx = {0, 1, -1, 0};
         int[] dy = {1, 0, 0, -1};
         // 4 4
-        if (getlifetime() % 4 == 0) {
+        int co_ile =4;
+
+        if(infected)
+        {
+            co_ile=co_ile*2;
+        }
+
+        if (getlifetime() % co_ile == 0) {
             for (int i = 0; i < dx.length; i++) {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
                 //System.out.println(newX + " " + newY);
                 if (newX >= 0 && newX < n && newY >= 0 && newY < n) {
                     //System.out.println("pierwszy if"+ map[newY][newX]);
-                    if (Map.zwrocmape().getMapa()[newY][newX] == null) {
+                    if (Map.zwrocmape().getMapa()[newX][newY] == null) {
                         //System.out.println("drugi if");
-                        Dab dab = new Dab(newY, newX, 1, false, "D");
-                        Map.zwrocmape().dodajDrzewo(newY, newX, dab);
+                        Dab dab = new Dab(newX, newY, 1, false, "D");
+                        Map.zwrocmape().dodajDrzewo(newX, newY, dab);
                     }
                 }
             }

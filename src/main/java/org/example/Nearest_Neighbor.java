@@ -19,12 +19,13 @@ public class Nearest_Neighbor {
             {
                 if(Map.zwrocmape().getMapa()[i][j] != null) /// sprawdzamy odleglosci tylko jak jest juz jakis objekt w tym miejscu na mapie
                 {
-                    double dist = dystans(x,y,j,i); // wyliczamy dystans pomiedzy punktami na mapie
+                    double dist = dystans(x,y,i,j); // wyliczamy dystans pomiedzy punktami na mapie
                     if(dist != 0)
                     {
                         if(dist<min)
                         {
                             nearest = Map.zwrocmape().getMapa()[i][j];
+                            min = dist;
                         }
                     }
                 }

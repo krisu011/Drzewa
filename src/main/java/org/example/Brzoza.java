@@ -35,8 +35,8 @@ public class Brzoza extends Drzewo {
                     int newY = y + dy[i];
                     if (newX >= 0 && newX < n && newY >= 0 && newY < n) {
                         if (Map.zwrocmape().getMapa()[newY][newX] == null) {
-                            Brzoza brzoza = new Brzoza(newY, newX, 1, false, "B");
-                            Map.zwrocmape().dodajDrzewo(newY, newX, brzoza);
+                            Brzoza brzoza = new Brzoza(newX, newY, 1, false, "B");
+                            Map.zwrocmape().dodajDrzewo(newX, newY, brzoza);
                         }
                     }
                 }
@@ -47,9 +47,9 @@ public class Brzoza extends Drzewo {
                     int newX = x + dxx[i];
                     int newY = y + dyy[i];
                     if (newX >= 0 && newX < n && newY >= 0 && newY < n) {
-                        if (Map.zwrocmape().getMapa()[newY][newX] == null) {
-                            Brzoza brzoza = new Brzoza(newY, newX, 1, false, "B");
-                            Map.zwrocmape().dodajDrzewo(newY, newX, brzoza);
+                        if (Map.zwrocmape().getMapa()[newX][newY] == null) {
+                            Brzoza brzoza = new Brzoza(newX, newY, 1, false, "B");
+                            Map.zwrocmape().dodajDrzewo(newX, newY, brzoza);
                         }
                     }
                 }

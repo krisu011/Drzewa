@@ -6,7 +6,7 @@ abstract public class Drzewo {
     boolean infected;
     String name;
 
-    public Drzewo(int y, int x, int lifetime, boolean infected, String name) {
+    public Drzewo(int x, int y, int lifetime, boolean infected, String name) {
 
         this.x = x;
         this.y = y;
